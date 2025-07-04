@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
-
 const prisma = require('./config/prisma'); 
 
 const app = express();
@@ -19,15 +18,23 @@ app.get('/', (req, res) => {
 // teste da conexão com o banco
 app.get('/teste-bd', async (req, res) => {
   try {
-    const users = await prisma.user.findMany(); 
+    const users = await prisma.user.findMany();
+    const watches = await prisma.watch.findMany();
+    const orders = await prisma.order.findMany();
+    const messages = await prisma.message.findMany();
+    const collections = await prisma.collection.findMany();
+
     res.json({
-      status: 'Conectado com sucesso!',
-      quantidadeUsuarios: users.length,
-      dados: users,
+      status: 'Banco acessado com sucesso!',
+      users: users.length,
+      watches: watches.length,
+      orders: orders.length,
+      messages: messages.length,
+      collections: collections.length,
     });
   } catch (err) {
-    console.error('Erro ao conectar com o banco:', err);
-    res.status(500).json({ erro: 'Falha ao conectar com o banco de dados.' });
+    console.error('Erro ao acessar tabelas:', err);
+    res.status(500).json({ erro: 'Falha ao consultar tabelas', detalhes: err.message });
   }
 });
 
