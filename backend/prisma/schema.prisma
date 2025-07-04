@@ -7,22 +7,120 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  phone     String?
-  country   String?
-  state     String?
-  city      String?
-  role      Role     @default(BUYER)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
 enum Role {
   BUYER
   SELLER
   ADMIN
+}
+
+model User {
+  id                Int        @id @default(autoincrement())
+  name              String
+  email             String     @unique
+  password          String
+  phone             String?
+  country           String?
+  state             String?
+  city              String?
+  role              Role       @default(BUYER)
+  isVerified        Boolean    @default(false)
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  // Relacionamentos
+  watches           Watch[]    @relation("SellerWatches")
+  orders            Order[]    @relation("BuyerOrders")
+  messagesSent      Message[] @relation("MessagesSent")
+  messagesReceived  Message[] @relation("MessagesReceived")
+  collections       Collection[]
+  adminLogs         AdminLog[]
+}
+
+model Watch {
+  id               Int        @id @default(autoincrement())
+  brand            String
+  model            String
+  referenceNumber  String?
+  movement         String?
+  year             Int?
+  condition        String
+  price            Float
+  description      String?
+  images           String[]   // URLs Cloudinary
+  sellerId         Int
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  // Especificações técnicas
+  caseMaterial     String?
+  caseDiameter     Float?
+  waterResistance  String?
+  glassType        String?
+  dialColor        String?
+  braceletMaterial String?
+  braceletColor    String?
+  claspType        String?
+  gender           String?
+
+  // Relacionamentos
+  seller           User       @relation("SellerWatches", fields: [sellerId], references: [id])
+  orders           Order[]
+  messages         Message[]
+  collections      Collection[]
+  priceHistories   PriceHistory[]
+}
+
+model Order {
+  id           Int      @id @default(autoincrement())
+  buyerId      Int
+  watchId      Int
+  status       String
+  paymentInfo  String?
+  shippingInfo String?
+  createdAt    DateTime @default(now())
+
+  buyer        User     @relation("BuyerOrders", fields: [buyerId], references: [id])
+  watch        Watch    @relation(fields: [watchId], references: [id])
+}
+
+model Collection {
+  id             Int     @id @default(autoincrement())
+  userId         Int
+  watchId        Int
+  estimatedValue Float?
+
+  user           User    @relation(fields: [userId], references: [id])
+  watch          Watch   @relation(fields: [watchId], references: [id])
+}
+
+model Message {
+  id         Int      @id @default(autoincrement())
+  fromUserId Int
+  toUserId   Int
+  watchId    Int?
+  content    String
+  timestamp  DateTime @default(now())
+
+  fromUser   User     @relation("MessagesSent", fields: [fromUserId], references: [id])
+  toUser     User     @relation("MessagesReceived", fields: [toUserId], references: [id])
+  watch      Watch?   @relation(fields: [watchId], references: [id])
+}
+
+model PriceHistory {
+  id           Int      @id @default(autoincrement())
+  watchModel   String
+  date         DateTime
+  averagePrice Float
+  watchId      Int?
+
+  watch        Watch?   @relation(fields: [watchId], references: [id])
+}
+
+model AdminLog {
+  id        Int      @id @default(autoincrement())
+  action    String
+  userId    Int
+  timestamp DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
 }
