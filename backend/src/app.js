@@ -4,12 +4,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 const prisma = require('./config/prisma'); 
 const authRoutes = require('./routes/authRoutes');
+const watchRoutes = require('./routes/watchRoutes');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/auth', authRoutes); //rotas de autenticação
+app.use('/auth', authRoutes); 
+app.use('/watches', watchRoutes);
 
 // rota raiz
 app.get('/', (req, res) => {
