@@ -3,12 +3,13 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 const prisma = require('./config/prisma'); 
-
+const authRoutes = require('./routes/authRoutes');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/auth', authRoutes); //rotas de autenticação
 
 // rota raiz
 app.get('/', (req, res) => {
