@@ -1,8 +1,29 @@
 const prisma = require('../config/prisma');
+const { upload } = require('../config/cloudinary');
 
 const criarRelogio = async (req, res) => {
   try {
-    const { brand, model, price, condition, description, images } = req.body;
+    const {
+      brand,
+      model,
+      price,
+      condition,
+      description,
+      referenceNumber,
+      movement,
+      year,
+      caseMaterial,
+      caseDiameter,
+      waterResistance,
+      glassType,
+      dialColor,
+      braceletMaterial,
+      braceletColor,
+      claspType,
+      gender
+    } = req.body;
+
+    const imageUrl = req.file?.path || null;
 
     const novoRelogio = await prisma.watch.create({
       data: {
@@ -11,9 +32,21 @@ const criarRelogio = async (req, res) => {
         price: parseFloat(price),
         condition,
         description,
-        images,
+        referenceNumber,
+        movement,
+        year: year ? Number(year) : null,
+        caseMaterial,
+        caseDiameter: caseDiameter ? Number(caseDiameter) : null,
+        waterResistance: waterResistance ? Number(waterResistance) : null,
+        glassType,
+        dialColor,
+        braceletMaterial,
+        braceletColor,
+        claspType,
+        gender,
+        images: imageUrl ? [imageUrl] : [],
         sellerId: req.user.id
-      },
+      }
     });
 
     res.status(201).json({
