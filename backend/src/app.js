@@ -6,6 +6,7 @@ const prisma = require('./config/prisma');
 const authRoutes = require('./routes/authRoutes');
 const watchRoutes = require('./routes/watchRoutes');
 const orderRoutes = require('./routes/orderRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 const app = express();
 
 app.use(cors());
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/auth', authRoutes); 
 app.use('/watches', watchRoutes);
 app.use('/orders', orderRoutes);
+app.use('/messages', messageRoutes);
 
 // rota raiz
 app.get('/', (req, res) => {
