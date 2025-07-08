@@ -5,6 +5,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const criarCheckout = async (req, res) => {
   try {
     const { orderId } = req.params;
+    const protocol = req.protocol;
+    const host = req.get('host');
 
     // Busca o pedido no banco
     const pedido = await prisma.order.findUnique({
@@ -33,8 +35,8 @@ const criarCheckout = async (req, res) => {
         }
       ],
       mode: 'payment',
-      success_url: 'https://seusite.com/sucesso',
-      cancel_url: 'https://seusite.com/cancelado'
+      success_url: `${protocol}://${host}/sucesso`,
+      cancel_url: `${protocol}://${host}/cancelado`
     });
 
     res.json({ checkoutUrl: session.url });
