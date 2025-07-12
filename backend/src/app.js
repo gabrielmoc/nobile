@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
+const app = express();
 const prisma = require("./config/prisma");
 const authRoutes = require("./routes/authRoutes");
 const watchRoutes = require("./routes/watchRoutes");
@@ -11,9 +12,17 @@ const collectionRoutes = require("./routes/collectionRoutes");
 const priceHistoryRoutes = require("./routes/priceHistoryRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const adminLogRoutes = require("./routes/adminLogRoutes");
-const app = express();
+const stripeController = require("./controllers/stripeController");
 
 app.use(cors());
+
+// ⚠️ Essa rota precisa vir ANTES de express.json()
+app.post(
+  "/webhook/stripe",
+  express.raw({ type: "application/json" }),
+  stripeController.handleWebhook
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
