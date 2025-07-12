@@ -10,6 +10,7 @@ const messageRoutes = require("./routes/messageRoutes");
 const collectionRoutes = require("./routes/collectionRoutes");
 const priceHistoryRoutes = require("./routes/priceHistoryRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const adminLogRoutes = require("./routes/adminLogRoutes");
 const app = express();
 
 app.use(cors());
@@ -22,6 +23,7 @@ app.use("/api/messages", messageRoutes);
 app.use("/api/collections", collectionRoutes);
 app.use("/api/price-history", priceHistoryRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/admin", adminLogRoutes);
 
 // rota raiz
 app.get("/", (req, res) => {
