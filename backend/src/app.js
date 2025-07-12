@@ -1,33 +1,35 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
 dotenv.config();
-const prisma = require('./config/prisma'); 
-const authRoutes = require('./routes/authRoutes');
-const watchRoutes = require('./routes/watchRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const messageRoutes = require('./routes/messageRoutes');
-const collectionRoutes = require('./routes/collectionRoutes');
-const priceHistoryRoutes = require('./routes/priceHistoryRoutes');
+const prisma = require("./config/prisma");
+const authRoutes = require("./routes/authRoutes");
+const watchRoutes = require("./routes/watchRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+const messageRoutes = require("./routes/messageRoutes");
+const collectionRoutes = require("./routes/collectionRoutes");
+const priceHistoryRoutes = require("./routes/priceHistoryRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api/auth', authRoutes); 
-app.use('/api/watches', watchRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/messages', messageRoutes);
-app.use('/api/collections', collectionRoutes);
-app.use('/api/price-history', priceHistoryRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/watches", watchRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/messages", messageRoutes);
+app.use("/api/collections", collectionRoutes);
+app.use("/api/price-history", priceHistoryRoutes);
+app.use("/api/admin", adminRoutes);
 
 // rota raiz
-app.get('/', (req, res) => {
-  res.send('API Nobile está no ar 🚀');
+app.get("/", (req, res) => {
+  res.send("API Nobile está no ar 🚀");
 });
 
 // teste da conexão com o banco
-app.get('/teste-bd', async (req, res) => {
+app.get("/teste-bd", async (req, res) => {
   try {
     const users = await prisma.user.findMany();
     const watches = await prisma.watch.findMany();
@@ -36,7 +38,7 @@ app.get('/teste-bd', async (req, res) => {
     const collections = await prisma.collection.findMany();
 
     res.json({
-      status: 'Banco acessado com sucesso!',
+      status: "Banco acessado com sucesso!",
       users: users.length,
       watches: watches.length,
       orders: orders.length,
@@ -44,8 +46,10 @@ app.get('/teste-bd', async (req, res) => {
       collections: collections.length,
     });
   } catch (err) {
-    console.error('Erro ao acessar tabelas:', err);
-    res.status(500).json({ erro: 'Falha ao consultar tabelas', detalhes: err.message });
+    console.error("Erro ao acessar tabelas:", err);
+    res
+      .status(500)
+      .json({ erro: "Falha ao consultar tabelas", detalhes: err.message });
   }
 });
 
