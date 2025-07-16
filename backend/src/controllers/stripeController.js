@@ -35,8 +35,8 @@ const criarCheckout = async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `https://google.com`, // ALTERAR DEPOIS
-      cancel_url: `https://google.com`, // ALTERAR DEPOIS
+      success_url: `https://c5aed54c1833.ngrok-free.app/`,
+      cancel_url: `https://c5aed54c1833.ngrok-free.app/`,
       metadata: {
         orderId: pedido.id.toString(),
       },
