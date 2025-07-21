@@ -81,6 +81,8 @@ model Order {
 
   buyer        User     @relation("BuyerOrders", fields: [buyerId], references: [id])
   watch        Watch    @relation(fields: [watchId], references: [id])
+
+  transactions Transaction[]
 }
 
 model Collection {
