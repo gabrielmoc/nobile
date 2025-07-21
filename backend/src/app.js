@@ -16,13 +16,6 @@ const stripeController = require("./controllers/stripeController");
 
 app.use(cors());
 
-// ⚠️ Essa rota precisa vir ANTES de express.json()
-app.post(
-  "/webhook/stripe",
-  express.raw({ type: "application/json" }),
-  stripeController.handleWebhook
-);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);

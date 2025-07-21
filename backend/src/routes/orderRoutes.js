@@ -1,4 +1,3 @@
-// backend/src/routes/orderRoutes.js
 const express = require("express");
 const router = express.Router();
 
@@ -8,17 +7,10 @@ const {
   atualizarStatusPedido,
 } = require("../controllers/orderController");
 
-const authMiddleware = require("../middlewares/authMiddleware");
 const stripeController = require("../controllers/stripeController");
+const authMiddleware = require("../middlewares/authMiddleware");
 
-// Webhook do Stripe (sem autenticação)
-router.post(
-  "/webhook",
-  express.raw({ type: "application/json" }),
-  stripeController.handleWebhook
-);
-
-// Todas as rotas de pedido exigem autenticação
+// ✅ Todas as rotas abaixo exigem autenticação
 router.use(authMiddleware);
 
 // Criar pedido
@@ -27,10 +19,13 @@ router.post("/", criarPedido);
 // Listar todos os pedidos do usuário logado
 router.get("/", listarPedidosDoUsuario);
 
-// Atualizar status do pedido
+// Atualizar status do pedido manualmente
 router.put("/:id", atualizarStatusPedido);
 
 // Criar sessão de pagamento Stripe
 router.post("/checkout/:orderId", stripeController.criarCheckout);
+
+// Verificar status do pagamento usando sessionId
+router.get("/verificar-pagamento", stripeController.verificarPagamento);
 
 module.exports = router;
