@@ -118,9 +118,62 @@ const confirmarEntrega = async (req, res) => {
   }
 };
 
+const realizarPayout = async (req, res) => {
+  const { orderId } = req.params;
+
+  try {
+    const pedido = await prisma.order.findUnique({
+      where: { id: parseInt(orderId) },
+      include: {
+        watch: {
+          include: {
+            seller: true,
+          },
+        },
+      },
+    });
+
+    if (!pedido) {
+      return res.status(404).json({ error: "Pedido não encontrado." });
+    }
+
+    if (pedido.status !== "Pago") {
+      return res.status(400).json({ error: "Pedido ainda não foi pago." });
+    }
+
+    const valorPago = pedido.watch.price;
+    const taxaMarketplace = 0.1 * valorPago;
+    const valorRecebido = valorPago - taxaMarketplace;
+
+    await prisma.transaction.create({
+      data: {
+        orderId: pedido.id,
+        sellerId: pedido.watch.seller.id,
+        amount: Math.round(valorRecebido * 100), // Em centavos
+        type: "PAYOUT",
+      },
+    });
+
+    return res.json({
+      success: true,
+      message: "Payout realizado com sucesso.",
+      dados: {
+        vendedor: pedido.watch.seller.name,
+        valor_pago: valorPago,
+        comissao: taxaMarketplace,
+        valor_recebido: valorRecebido,
+      },
+    });
+  } catch (err) {
+    console.error("Erro no payout:", err.message);
+    return res.status(500).json({ error: "Erro ao realizar o payout." });
+  }
+};
+
 module.exports = {
   criarPedido,
   listarPedidosDoUsuario,
   atualizarStatusPedido,
   confirmarEntrega,
+  realizarPayout,
 };
