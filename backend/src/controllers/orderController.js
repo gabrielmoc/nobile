@@ -1,5 +1,5 @@
 // backend/src/controllers/orderController.js
-const prisma = require('../config/prisma');
+const prisma = require("../config/prisma");
 
 // Criar novo pedido
 const criarPedido = async (req, res) => {
@@ -11,19 +11,19 @@ const criarPedido = async (req, res) => {
       data: {
         buyerId,
         watchId,
-        status: 'pendente',
-        paymentInfo: '',
-        shippingInfo: ''
-      }
+        status: "pendente",
+        paymentInfo: "",
+        shippingInfo: "",
+      },
     });
 
     res.status(201).json({
-      message: 'Pedido criado com sucesso!',
-      pedido: novoPedido
+      message: "Pedido criado com sucesso!",
+      pedido: novoPedido,
     });
   } catch (err) {
-    console.error('Erro ao criar pedido:', err);
-    res.status(500).json({ error: 'Erro ao criar pedido.' });
+    console.error("Erro ao criar pedido:", err);
+    res.status(500).json({ error: "Erro ao criar pedido." });
   }
 };
 
@@ -39,16 +39,16 @@ const listarPedidosDoUsuario = async (req, res) => {
             brand: true,
             model: true,
             price: true,
-            images: true
-          }
-        }
-      }
+            images: true,
+          },
+        },
+      },
     });
 
     res.json(pedidos);
   } catch (err) {
-    console.error('Erro ao listar pedidos:', err);
-    res.status(500).json({ error: 'Erro ao listar pedidos.' });
+    console.error("Erro ao listar pedidos:", err);
+    res.status(500).json({ error: "Erro ao listar pedidos." });
   }
 };
 
@@ -59,30 +59,68 @@ const atualizarStatusPedido = async (req, res) => {
     const { status } = req.body;
 
     const pedidoExistente = await prisma.order.findUnique({
-      where: { id: parseInt(id) }
+      where: { id: parseInt(id) },
     });
 
     if (!pedidoExistente) {
-      return res.status(404).json({ error: 'Pedido não encontrado.' });
+      return res.status(404).json({ error: "Pedido não encontrado." });
     }
 
     const pedidoAtualizado = await prisma.order.update({
       where: { id: parseInt(id) },
-      data: { status }
+      data: { status },
     });
 
     res.json({
-      message: 'Status do pedido atualizado com sucesso!',
-      pedido: pedidoAtualizado
+      message: "Status do pedido atualizado com sucesso!",
+      pedido: pedidoAtualizado,
     });
   } catch (err) {
-    console.error('Erro ao atualizar pedido:', err);
-    res.status(500).json({ error: 'Erro ao atualizar status do pedido.' });
+    console.error("Erro ao atualizar pedido:", err);
+    res.status(500).json({ error: "Erro ao atualizar status do pedido." });
+  }
+};
+
+const confirmarEntrega = async (req, res) => {
+  const orderId = parseInt(req.params.id);
+  const userId = req.user.id;
+
+  try {
+    const pedido = await prisma.order.findUnique({
+      where: { id: orderId },
+    });
+
+    if (!pedido) {
+      return res.status(404).json({ error: "Pedido não encontrado." });
+    }
+
+    if (pedido.buyerId !== userId) {
+      return res.status(403).json({ error: "Acesso negado." });
+    }
+
+    if (pedido.status !== "Pago") {
+      return res.status(400).json({ error: "Pedido ainda não foi pago." });
+    }
+
+    const atualizado = await prisma.order.update({
+      where: { id: orderId },
+      data: { status: "Entregue" },
+    });
+
+    return res.json({
+      success: true,
+      message: "Entrega confirmada com sucesso.",
+      pedido: atualizado,
+    });
+  } catch (err) {
+    console.error("Erro ao confirmar entrega:", err.message);
+    return res.status(500).json({ error: "Erro ao confirmar entrega." });
   }
 };
 
 module.exports = {
   criarPedido,
   listarPedidosDoUsuario,
-  atualizarStatusPedido
+  atualizarStatusPedido,
+  confirmarEntrega,
 };

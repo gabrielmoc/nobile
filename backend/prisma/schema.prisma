@@ -124,3 +124,12 @@ model AdminLog {
 
   user      User     @relation(fields: [userId], references: [id])
 }
+
+model Transaction {
+  id        Int      @id @default(autoincrement())
+  order     Order    @relation(fields: [orderId], references: [id])
+  orderId   Int
+  type      String   // "payment" ou "payout"
+  amount    Int      // em centavos
+  createdAt DateTime @default(now())
+}

@@ -9,6 +9,7 @@ const {
 
 const stripeController = require("../controllers/stripeController");
 const authMiddleware = require("../middlewares/authMiddleware");
+const { confirmarEntrega } = require("../controllers/orderController");
 
 // ✅ Todas as rotas abaixo exigem autenticação
 router.use(authMiddleware);
@@ -27,5 +28,7 @@ router.post("/checkout/:orderId", stripeController.criarCheckout);
 
 // Verificar status do pagamento usando sessionId
 router.get("/verificar-pagamento", stripeController.verificarPagamento);
+
+router.put("/:id/confirm-delivery", confirmarEntrega);
 
 module.exports = router;
