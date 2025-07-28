@@ -3,7 +3,7 @@
 Marketplace de relógios de luxo entre usuários. A plataforma permite que pessoas anunciem, comprem e gerenciem pedidos de relógios de alto padrão, com total segurança e integração com Stripe para pagamentos.
 
 <p align="center">
-  <img src="./documentação/feedback.png" alt="Feedback do cliente" width="500"/>
+  <img src="./backend/documentação/feedback.png" alt="Feedback do cliente" width="500"/>
 </p>
 
 ## 📦 Funcionalidades Principais
