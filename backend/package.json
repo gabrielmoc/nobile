@@ -20,7 +20,9 @@
     "multer": "^2.0.1",
     "multer-storage-cloudinary": "^4.0.0",
     "prisma": "^6.11.1",
-    "stripe": "^18.3.0"
+    "stripe": "^18.3.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

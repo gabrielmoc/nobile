@@ -13,6 +13,8 @@ const priceHistoryRoutes = require("./routes/priceHistoryRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const adminLogRoutes = require("./routes/adminLogRoutes");
 const stripeController = require("./controllers/stripeController");
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swaggerConfig");
 
 app.use(cors());
 
@@ -26,6 +28,7 @@ app.use("/api/collections", collectionRoutes);
 app.use("/api/price-history", priceHistoryRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin", adminLogRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // rota raiz
 app.get("/", (req, res) => {
