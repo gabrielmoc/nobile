@@ -72,6 +72,10 @@
   text-align: center;
 }
 
+.marca:hover p {
+  color: #d4a017; 
+}
+
 .marca-icon:hover {
   background-color: #dcdcdc; 
 }
