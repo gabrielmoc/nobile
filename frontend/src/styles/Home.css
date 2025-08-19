@@ -1,13 +1,88 @@
+/* secao banner */
+
 .home-container {
-  max-width: 980px; 
+  max-width: 88%; 
   margin: 0 auto;
   padding: 16px;
 }
 
 .banner-img {
   width: 100%;
-  max-height: 360px; 
+  max-height: 100%; 
   object-fit: cover;
   border-radius: 12px; 
   display: block;
+}
+
+/* Seção Como Funciona */
+.como-funciona {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.como-funciona .subtitulo {
+  color: #d4a017; /* ou #CBA135, tom de dourado */
+  font-family: Erstoria;
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+line-height: 140%;
+letter-spacing: -1%;
+text-align: center;
+}
+
+.como-funciona .titulo {
+  font-family: Erstoria;
+font-weight: 400;
+font-style: Regular;
+font-size: 28px;
+line-height: 124%;
+letter-spacing: 0%;
+text-align: center;
+
+}
+
+.etapas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.etapa {
+  width: 260px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.etapa img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.etapa h3 {
+  font-family: 'Erstoria', serif;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.etapa p {
+  font-family: 'Lato', sans-serif;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+.como-funciona .subtitulo {
+font-size: 16px;
+}
+}
+
+@media (max-width: 400px) {
+.como-funciona .titulo {
+    font-size: 20px;
+}
 }

@@ -7,7 +7,7 @@
 }
 
 .footer-content {
-  max-width: 1000px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -17,7 +17,7 @@
   align-items: center;
   margin-bottom: 24px;
   flex-wrap: nowrap;
-  gap: 8px;
+  gap: 0;
   min-width: 0;
 }
 
@@ -25,9 +25,9 @@
 
 .logo-img {
   height: 24px;
-  max-width: 140px;
+  max-width: 120px;
   object-fit: contain;
-  flex-shrink: 0; /* impede de encolher */
+  flex-shrink: 0;
   }
 
 .social-icons a {
