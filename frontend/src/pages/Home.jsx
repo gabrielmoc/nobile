@@ -42,19 +42,19 @@ const Home = () => {
   };
 
   const marcas = [
-    { img: marca1, nome: 'Rolex' },
-    { img: marca2, nome: 'Tag Heuer' },
-    { img: marca3, nome: 'Brietling' },
-    { img: marca4, nome: 'Audemars Piguet' },
-    { img: marca5, nome: 'Patek Phillipe' },
-    { img: marca6, nome: 'Hublot' },
-    { img: marca7, nome: 'Cartier' },
-    { img: marca8, nome: 'Seiko' },
-    { img: marca9, nome: 'Omega' },
-    { img: marca10, nome: 'IWC' },
-    { img: marca11, nome: 'Panerai' },
-    { img: marca12, nome: 'Tissot' },
-  ];
+  { img: marca1, nome: 'Rolex' },
+  { img: marca2, nome: 'Tag Heuer' },
+  { img: marca3, nome: 'Breitling' },
+  { img: marca4, nome: 'Audemars Piguet' },
+  { img: marca5, nome: 'Patek Philippe' },
+  { img: marca6, nome: 'Hublot' },
+  { img: marca7, nome: 'Cartier' },
+  { img: marca8, nome: 'Seiko' },
+  { img: marca9, nome: 'Omega' },
+  { img: marca10, nome: 'IWC' },
+  { img: marca11, nome: 'Panerai' },
+  { img: marca12, nome: 'Tissot' },
+];
 
   return (
     <div className="home-container">

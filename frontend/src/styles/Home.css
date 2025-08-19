@@ -72,6 +72,10 @@
   text-align: center;
 }
 
+.marca-icon:hover {
+  background-color: #dcdcdc; 
+}
+
 @media screen and (max-width: 768px) {
   .marcas-slider {
     justify-content: flex-start;
