@@ -14,15 +14,100 @@
   display: block;
 }
 
+/* secao marcas */
+
+.marcas {
+  padding: 40px 16px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.marcas::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, etc */
+}
+
+.marcas-slider {
+  display: flex;
+  gap: 24px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: #000;
+  min-width: 80px;
+}
+
+.marca-icon {
+  background-color: #EFEFEF;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.marca-icon img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.marca p {
+  font-family: 'Erstoria', serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -1%;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .marcas-slider {
+    justify-content: flex-start;
+    padding-left: 8px;
+    gap: 12px; /* Reduzido de 24px para 12px */
+  }
+
+  .marca {
+    min-width: 64px;
+    margin-right: 8px; /* Reduzido */
+  }
+
+  .marca-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .marca-icon img {
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+  .marca p {
+    font-size: 11px;
+  }
+}
+
 /* Seção Como Funciona */
 .como-funciona {
-  padding: 60px 20px;
+  padding: 80px 10px;
   text-align: center;
   background-color: #fff;
 }
 
 .como-funciona .subtitulo {
-  color: #d4a017; /* ou #CBA135, tom de dourado */
+  color: #d4a017; 
   font-family: Erstoria;
 font-weight: 400;
 font-style: Regular;

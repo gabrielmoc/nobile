@@ -16,6 +16,19 @@ import fim4 from '../assets/fim4.svg';
 import fim5 from '../assets/fim5.svg';
 import fim6 from '../assets/fim6.svg';
 
+import marca1 from '../assets/marca1.svg';
+import marca2 from '../assets/marca2.svg';
+import marca3 from '../assets/marca3.svg';
+import marca4 from '../assets/marca4.svg';
+import marca5 from '../assets/marca5.svg';
+import marca6 from '../assets/marca6.svg';
+import marca7 from '../assets/marca7.svg';
+import marca8 from '../assets/marca8.svg';
+import marca9 from '../assets/marca9.svg';
+import marca10 from '../assets/marca10.svg';
+import marca11 from '../assets/marca11.svg';
+import marca12 from '../assets/marca12.svg';
+
 const Home = () => {
   const settings = {
     dots: true,
@@ -28,6 +41,21 @@ const Home = () => {
     arrows: false,
   };
 
+  const marcas = [
+    { img: marca1, nome: 'Rolex' },
+    { img: marca2, nome: 'Tag Heuer' },
+    { img: marca3, nome: 'Brietling' },
+    { img: marca4, nome: 'Audemars Piguet' },
+    { img: marca5, nome: 'Patek Phillipe' },
+    { img: marca6, nome: 'Hublot' },
+    { img: marca7, nome: 'Cartier' },
+    { img: marca8, nome: 'Seiko' },
+    { img: marca9, nome: 'Omega' },
+    { img: marca10, nome: 'IWC' },
+    { img: marca11, nome: 'Panerai' },
+    { img: marca12, nome: 'Tissot' },
+  ];
+
   return (
     <div className="home-container">
       {/* Slider */}
@@ -37,6 +65,20 @@ const Home = () => {
         <div><a href="#"><img src={banner3} alt="Banner 3" className="banner-img" /></a></div>
         <div><a href="#"><img src={banner4} alt="Banner 4" className="banner-img" /></a></div>
       </Slider>
+
+      {/* Marcas */}
+      <section className="marcas">
+        <div className="marcas-slider">
+          {marcas.map((marca, index) => (
+            <a href="#" className="marca" key={index}>
+              <div className="marca-icon">
+                <img src={marca.img} alt={marca.nome} />
+              </div>
+              <p>{marca.nome}</p>
+            </a>
+          ))}
+        </div>
+      </section>
 
       {/* Como funciona */}
       <section className="como-funciona">
