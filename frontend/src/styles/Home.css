@@ -119,20 +119,18 @@
   font-family: Erstoria;
   font-weight: 400;
   font-style: Regular;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 140%;
   letter-spacing: -1%;
   text-align: center;
 }
 
 .como-funciona .titulo {
-  font-family: Erstoria;
-  font-weight: 400;
-  font-style: Regular;
-  font-size: 28px;
-  line-height: 124%;
-  letter-spacing: 0%;
-  text-align: center;
+    font-family: Erstoria;
+    font-size: 50px;
+    line-height: 124%;
+    text-align: center;
+    margin-top: 0;
 }
 
 .etapas {
@@ -143,7 +141,7 @@
 }
 
 .etapa {
-  width: 240px;
+  width: 30%;
   max-width: 100%;
   text-align: center;
 }
@@ -165,6 +163,8 @@
   color: #666;
   font-size: 14px;
   line-height: 1.5;
+  max-width: 55%;
+  margin: 0 auto;
 }
 
 @media (max-width: 767px) {
@@ -258,13 +258,13 @@
 
 .relogio-marca {
   font-family: Erstoria;
-font-weight: 400;
-font-style: Regular;
-font-size: 16px;
-leading-trim: CAP_HEIGHT;
-line-height: 140%;
-letter-spacing: -1%;
-color: #D5A60A;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  leading-trim: CAP_HEIGHT;
+  line-height: 140%;
+  letter-spacing: -1%;
+  color: #d5a60a;
 }
 
 .icon-verificado {
@@ -274,26 +274,26 @@ color: #D5A60A;
 
 .relogio-nome {
   font-family: Erstoria;
-font-weight: 400;
-font-style: Regular;
-font-size: 22px;
-leading-trim: CAP_HEIGHT;
-line-height: 140%;
-letter-spacing: -1%;
-    padding: 0;
-    margin: 0;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  leading-trim: CAP_HEIGHT;
+  line-height: 140%;
+  letter-spacing: -1%;
+  padding: 0;
+  margin: 0;
 }
 
 .relogio-descricao {
   font-family: Lato;
-font-weight: 400;
-font-style: Regular;
-font-size: 16px;
-leading-trim: CAP_HEIGHT;
-line-height: 140%;
-letter-spacing: 0%;
-vertical-align: middle;
-color: #777777;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  leading-trim: CAP_HEIGHT;
+  line-height: 140%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #777777;
 }
 
 .relogio-preco-fav {
@@ -304,12 +304,12 @@ color: #777777;
 
 .relogio-preco {
   font-family: Lato;
-font-weight: 500;
-font-style: Medium;
-font-size: 20px;
-line-height: 140%;
-vertical-align: middle;
-margin: 0;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 140%;
+  vertical-align: middle;
+  margin: 0;
 }
 
 .icon-coracao {
@@ -321,4 +321,22 @@ margin: 0;
 
 .icon-coracao:hover {
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .sugestoes-topo .titulo {
+    font-size: 20px;
+  }
+  .etapa {
+    width: 240px;
+  }
+  .footer-description{
+    display: none;
+  }
+  .etapa p {
+    max-width: none;
+}
+.como-funciona .titulo {
+    font-size: 30px;
+}
 }
