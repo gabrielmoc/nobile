@@ -22,6 +22,20 @@ const Header = () => {
           <Link to="/">
             <img src={logo} alt="Nobile" className="logo-img" />
           </Link>
+
+          <div className="header-busca-links">
+            <div className="esq">
+              <a href="#" className="header-link">
+                Perguntas frequentes
+              </a>
+              <a href="#" className="header-link">
+                Vender meu relógio
+              </a>
+            </div>
+
+            <input type="text" placeholder="Pesquisar 564.937 relógios..." />
+          </div>
+
           <FaBars className="menu-icon" onClick={() => setMenuAberto(true)} />
         </div>
       </header>

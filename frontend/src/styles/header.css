@@ -1,3 +1,7 @@
+/* =====================
+   Estilos Gerais
+===================== */
+
 .side-menu,
 .side-menu * {
   font-family: 'Lato', sans-serif;
@@ -29,10 +33,56 @@
 }
 
 .menu-icon:hover {
-  color: #e0b200; /* cor da paleta */
+  color: #e0b200;
 }
 
-/* Side Menu */
+/* =====================
+   Bloco da busca e links
+===================== */
+
+.header-busca-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.header-busca-links input[type="text"] {
+  padding: 8px 14px 8px 32px;
+  border: none;
+  background-color: #f3f3f3;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  width: 240px;
+  background-image: url('../assets/search.svg');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 16px;
+}
+
+.header-link {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: #777;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-link:hover {
+  color: #000;
+}
+
+/* Ocultar em telas pequenas */
+@media screen and (max-width: 768px) {
+  .header-busca-links {
+    display: none;
+  }
+}
+
+/* =====================
+   Side Menu
+===================== */
 
 .side-menu {
   position: fixed;
@@ -133,4 +183,170 @@
 .sair-link:hover {
   background-color: #f9d5d5 !important;
   color: #c00000 !important;
+}
+
+.header-nobile {
+  background-color: #f7f7f7; /* Novo fundo da área do header */
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd; /* separação sutil */
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px; /* novo espaçamento entre os blocos */
+}
+
+.logo-img {
+  height: 28px;
+  object-fit: contain;
+  transition: opacity 0.3s;
+}
+
+.logo-img:hover {
+  opacity: 0.8;
+}
+
+/* Bloco de busca + links */
+.header-busca-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Campo de busca com mais destaque */
+.header-busca-links input[type="text"] {
+  padding: 10px 16px 10px 36px;
+  border-radius: 14px;
+  border: 1px solid #bbb; /* mais escura */
+  background-color: #fff;
+  background-image: url('../assets/search.svg');
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  background-size: 16px;
+  font-size: 14px;
+  width: 280px;
+  transition: border 0.2s ease;
+}
+
+.header-busca-links input[type="text"]:focus {
+  border-color: #000;
+  outline: none;
+}
+
+/* Links ao lado do campo de busca */
+.header-link {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.header-link:hover {
+  color: #000;
+}
+
+/* Esconde no mobile */
+@media screen and (max-width: 768px) {
+  .header-busca-links {
+    display: none;
+  }
+}
+
+/* Fundo e borda inferior */
+.header-nobile {
+  background-color: #f7f7f7;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Flex container geral */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo-img {
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Área central: input de busca */
+.header-busca-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex: 1;
+}
+
+/* Input de busca */
+.header-busca-links input[type="text"] {
+  padding: 10px 16px 10px 36px;
+  border-radius: 14px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  background-image: url('../assets/search.svg');
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  background-size: 16px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 320px;
+  transition: border 0.2s ease;
+}
+
+.header-busca-links input[type="text"]:focus {
+  border-color: #000;
+  outline: none;
+}
+
+/* Links ao lado do campo de busca */
+.header-link {
+  font-size: 14px;
+  color: #777777;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.header-link:hover {
+  color: #d4a017;
+}
+
+/* Ícone de menu */
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.header-busca-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    flex: 1 1;
+}
+
+.esq {
+  display: flex;
+  gap: 50px;
+}
+
+/* Responsivo: esconde busca e links no mobile */
+@media screen and (max-width: 768px) {
+  .header-busca-links {
+    display: none;
+  }
 }
