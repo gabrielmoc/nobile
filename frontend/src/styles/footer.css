@@ -24,7 +24,7 @@
     gap: 0;
     min-width: 0;
     flex-direction: column;
-    margin: 0 auto 24px auto;
+    margin-bottom: 24px;
 }
 
 .logo-img {
@@ -35,7 +35,7 @@
 }
 
 .social-icons a {
-  margin-left: 12px;
+  margin-left: 8px;
   display: inline-block;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
@@ -145,4 +145,14 @@
     flex-direction: column;
     gap: 0;
   }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0;
+    min-width: 0;
+    flex-direction: column;
+    margin: 0 auto 24px auto;
+}
 }
