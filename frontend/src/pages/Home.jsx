@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Home.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -29,7 +29,31 @@ import marca10 from '../assets/marca10.svg';
 import marca11 from '../assets/marca11.svg';
 import marca12 from '../assets/marca12.svg';
 
+import feedbackIcon from '../assets/feedback.svg';
+import iconeCoracao from '../assets/coracao.svg';
+
 const Home = () => {
+  const [relogios, setRelogios] = useState([]);
+
+  useEffect(() => {
+    const buscarRelogios = async () => {
+      try {
+        const resposta = await fetch('http://localhost:3000/api/watches');
+        const dados = await resposta.json();
+
+        const ultimos = dados
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .slice(0, 4);
+
+        setRelogios(ultimos);
+      } catch (erro) {
+        console.error('Erro ao buscar relógios:', erro);
+      }
+    };
+
+    buscarRelogios();
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -42,19 +66,19 @@ const Home = () => {
   };
 
   const marcas = [
-  { img: marca1, nome: 'Rolex' },
-  { img: marca2, nome: 'Tag Heuer' },
-  { img: marca3, nome: 'Breitling' },
-  { img: marca4, nome: 'Audemars Piguet' },
-  { img: marca5, nome: 'Patek Philippe' },
-  { img: marca6, nome: 'Hublot' },
-  { img: marca7, nome: 'Cartier' },
-  { img: marca8, nome: 'Seiko' },
-  { img: marca9, nome: 'Omega' },
-  { img: marca10, nome: 'IWC' },
-  { img: marca11, nome: 'Panerai' },
-  { img: marca12, nome: 'Tissot' },
-];
+    { img: marca1, nome: 'Rolex' },
+    { img: marca2, nome: 'Tag Heuer' },
+    { img: marca3, nome: 'Breitling' },
+    { img: marca4, nome: 'Audemars Piguet' },
+    { img: marca5, nome: 'Patek Philippe' },
+    { img: marca6, nome: 'Hublot' },
+    { img: marca7, nome: 'Cartier' },
+    { img: marca8, nome: 'Seiko' },
+    { img: marca9, nome: 'Omega' },
+    { img: marca10, nome: 'IWC' },
+    { img: marca11, nome: 'Panerai' },
+    { img: marca12, nome: 'Tissot' },
+  ];
 
   return (
     <div className="home-container">
@@ -76,6 +100,37 @@ const Home = () => {
               </div>
               <p>{marca.nome}</p>
             </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Sugestões para você */}
+      <section className="sugestoes">
+        <div className="sugestoes-topo">
+          <h2 className="titulo">Sugestões para você</h2>
+          <a href="#" className="ver-tudo">Ver tudo</a>
+        </div>
+
+        <div className="sugestoes-grid">
+          {relogios.map((relogio, index) => (
+            <div className="relogio-card" key={index}>
+              <div className="relogio-imagem">
+                <img src={relogio.images[0]} alt={relogio.model} />
+              </div>
+              <p className="relogio-marca">
+                {relogio.brand}
+                {/* opcional: verificado */}
+                {relogio.verificado && (
+                  <img src={feedbackIcon} alt="Verificado" className="icon-verificado" />
+                )}
+              </p>
+              <h3 className="relogio-nome">{relogio.model}</h3>
+              <p className="relogio-descricao">{relogio.description}</p>
+              <div className="relogio-preco-fav">
+                <p className="relogio-preco">R$ {Number(relogio.price).toLocaleString('pt-BR')}</p>
+                <img src={iconeCoracao} alt="Favorito" className="icon-coracao" />
+              </div>
+            </div>
           ))}
         </div>
       </section>
