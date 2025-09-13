@@ -32,6 +32,9 @@ import marca12 from "../assets/marca12.svg";
 import desktop from "../assets/prot-dsk.svg";
 import mobile from "../assets/prot-mbl.svg";
 
+import desk from "../assets/desk.svg";
+import mob from "../assets/mob.svg";
+
 import left from "../assets/prev.png";
 import right from "../assets/next.png";
 
@@ -71,38 +74,38 @@ const Home = () => {
     arrows: false,
   };
 
-const Arrow = ({ className, style, onClick, dir }) => (
-  <button
-    type="button"
-    className={`${className} custom-arrow ${dir}`}
-    style={style}
-    onClick={onClick}
-    aria-label={dir === "prev" ? "Anterior" : "Próximo"}
-  >
-    <img src={dir === "prev" ? left : right} alt="" />
-  </button>
-);
+  const Arrow = ({ className, style, onClick, dir }) => (
+    <button
+      type="button"
+      className={`${className} custom-arrow ${dir}`}
+      style={style}
+      onClick={onClick}
+      aria-label={dir === "prev" ? "Anterior" : "Próximo"}
+    >
+      <img src={dir === "prev" ? left : right} alt="" />
+    </button>
+  );
 
-const settings2 = {
-  dots: true,
-  infinite: true,
-  speed: 600,
-  autoplay: true,
-  autoplaySpeed: 4000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,         
-  centerMode: true,     
-  centerPadding: "15%", 
-  responsive: [
-    { breakpoint: 1280, settings: { centerPadding: "12%" } },
-    { breakpoint: 991,  settings: { centerPadding: "10%" } },
-    { breakpoint: 768,  settings: { centerPadding: "8%"  } },
-    { breakpoint: 480,  settings: { centerPadding: "0"   } },
-  ],
-  prevArrow: <Arrow dir="prev" />,
-  nextArrow: <Arrow dir="next" />,
-};
+  const settings2 = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    centerMode: true,
+    centerPadding: "15%",
+    responsive: [
+      { breakpoint: 1280, settings: { centerPadding: "12%" } },
+      { breakpoint: 991, settings: { centerPadding: "10%" } },
+      { breakpoint: 768, settings: { centerPadding: "8%" } },
+      { breakpoint: 480, settings: { centerPadding: "0" } },
+    ],
+    prevArrow: <Arrow dir="prev" />,
+    nextArrow: <Arrow dir="next" />,
+  };
 
   const marcas = [
     { img: marca1, nome: "Rolex" },
@@ -225,6 +228,22 @@ const settings2 = {
             </div>
           ))}
         </Slider>
+      </section>
+
+      {/* Vendedores em destaque */}
+
+      {/* Vire vendedor (banner) */}
+      <section className="vire-vendedor">
+        <a
+          href="#"
+          className="vire-vendedor__link"
+          aria-label="Vire vendedor na Nobile"
+        >
+          <picture>
+            <source media="(max-width: 991px)" srcSet={mob} />
+            <img src={desk} alt="Vire vendedor na Nobile" loading="lazy" />
+          </picture>
+        </a>
       </section>
 
       {/* Como funciona */}

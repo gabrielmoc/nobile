@@ -578,3 +578,49 @@ margin: 0;
     height: 25px;
   }
 }
+
+/* Vire vendedor */
+.vire-vendedor {
+  margin: 56px 0;            /* respiro acima/abaixo */
+}
+
+.vire-vendedor__link {
+  display: block;
+  border-radius: 16px;       /* cantos arredondados */
+  overflow: hidden;          /* corta o zoom no hover nas bordas */
+  outline: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);  /* leve profundidade */
+  transition: box-shadow .25s ease, transform .25s ease;
+  cursor: pointer;
+}
+
+.vire-vendedor picture,
+.vire-vendedor img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.vire-vendedor__link img {
+  transition: transform .25s ease;
+}
+
+.vire-vendedor__link:hover img {
+  transform: scale(1.01);    /* micro-zoom no hover */
+}
+
+.vire-vendedor__link:hover,
+.vire-vendedor__link:focus-visible {
+  box-shadow: 0 12px 28px rgba(0,0,0,.14);
+}
+
+/* Mobile: menos sombra e raio um pouco menor, se quiser */
+@media (max-width: 991px) {
+  .vire-vendedor {
+    margin: 40px 0;
+  }
+  .vire-vendedor__link {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+}
