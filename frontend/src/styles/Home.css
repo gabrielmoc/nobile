@@ -188,7 +188,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 90%;
+  max-width: 99%;
   padding: 0 10px;
   margin-bottom: 30px;
 }
@@ -257,19 +257,20 @@
 }
 
 .relogio-marca {
-  font-family: Erstoria;
-  font-weight: 400;
-  font-style: Regular;
-  font-size: 16px;
-  leading-trim: CAP_HEIGHT;
-  line-height: 140%;
-  letter-spacing: -1%;
-  color: #d5a60a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Erstoria;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #d5a60a;
 }
 
 .icon-verificado {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
 }
 
 .relogio-nome {
@@ -277,9 +278,7 @@
   font-weight: 400;
   font-style: Regular;
   font-size: 22px;
-  leading-trim: CAP_HEIGHT;
   line-height: 140%;
-  letter-spacing: -1%;
   padding: 0;
   margin: 0;
 }
@@ -339,4 +338,243 @@
 .como-funciona .titulo {
     font-size: 30px;
 }
+}
+
+/* Seguro */
+.secao-protecao {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.secao-protecao picture, .secao-protecao img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    margin: 0 auto;
+    margin-left: -3%;
+    margin-top: -10%;
+    margin-bottom: -10%;
+}
+
+@media screen and (max-width: 991px){
+.secao-protecao picture, .secao-protecao img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    margin: 0 auto;
+    margin-left: 0;
+    margin-top: -5%;
+    margin-bottom: -5%;
+}}
+
+/* Destaques */
+.secao-destaques {
+  width: 100vw; /* 100% da largura da viewport */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #000; /* preto */
+  padding: 80px 0;
+  text-align: center;
+}
+
+.titulo-destaques {
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #d5a60a;
+  margin-bottom: 40px;
+}
+
+.slide-destaque {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagem-destaque {
+  max-width: 350px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.nome-destaque {
+  font-family: Erstoria;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 140%;
+  color: #fff;
+  margin: 10px 0 4px 0;
+}
+
+.preco-destaque {
+  font-family: Lato;
+font-weight: 300;
+font-style: Light;
+font-size: 24px;
+leading-trim: CAP_HEIGHT;
+line-height: 140%;
+letter-spacing: -1%;
+text-align: center;
+vertical-align: middle;
+color: white;
+margin: 0;
+}
+
+.slick-prev,
+.slick-next {
+  width: 48px;
+  height: 48px;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: -60px;
+}
+
+.slick-next {
+  right: -60px;
+}
+
+.seta-back,
+.seta-prox {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.slick-slide img {
+    display: block;
+    margin: 50px auto;
+}
+
+.secao-destaques {
+  background-color: black;
+  padding: 80px 0;
+  position: relative;
+}
+
+.slide-destaque {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.imagem-destaque {
+  max-width: 100%;
+  height: auto;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+.slick-prev {
+  left: 10px;
+}
+.slick-next {
+  right: 10px;
+}
+
+.slick-dots {
+  bottom: -20px;
+}
+
+.slick-dots li button:before {
+  color: white;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+}
+
+/* Garante que os slides vizinhos apareçam parcialmente */
+.secao-destaques .slick-list { overflow: visible; }
+
+/* Arrows padrão visíveis sobre o fundo preto */
+.secao-destaques .slick-prev,
+.secao-destaques .slick-next {
+  z-index: 10;
+  top: 45%;
+  width: 40px;
+  height: 40px;
+}
+.secao-destaques .slick-prev { left: 12px; }
+.secao-destaques .slick-next { right: 12px; }
+.secao-destaques .slick-prev:before,
+.secao-destaques .slick-next:before {
+  color: #fff;
+  font-size: 28px;
+  opacity: 0.95;
+}
+
+/* Dots altos contraste e dentro da seção */
+.secao-destaques .slick-dots { bottom: 10px; }
+.secao-destaques .slick-dots li button:before {
+  color: #fff;
+  font-size: 12px;
+  opacity: 0.75;
+}
+.secao-destaques .slick-dots li.slick-active button:before {
+  color: #efefef;
+  opacity: 1;
+}
+
+.secao-destaques .slick-next {
+    right: 30%;
+    top: 90%;
+}
+
+.secao-destaques .slick-prev {
+    left: 30%;
+    top: 90%;
+}
+
+.secao-destaques .slick-prev:before, .secao-destaques .slick-next:before {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .titulo-destaques {
+    font-size: 18px;
+}
+.nome-destaque {
+    font-size: 25px;
+}
+.preco-destaque{
+  font-size: 20px;
+}
+.secao-destaques .slick-dots li button:before{
+  font-size: 8px;
+}
+.secao-destaques .slick-prev:before, .secao-destaques .slick-next:before {
+    color: #fff;
+    font-size: 15px;
+    opacity: 0.95;
+}
+.secao-destaques .slick-next{
+  right: 3%;
+  top: 85%;
+}
+.secao-destaques .slick-prev{
+  left: 3%;
+  top: 85%;
+}
+
+.secao-destaques .custom-arrow img {
+    width: 25px;
+    height: 25px;
+  }
 }
