@@ -9,6 +9,11 @@ import banner2 from "../assets/banner2.svg";
 import banner3 from "../assets/banner3.svg";
 import banner4 from "../assets/banner4.svg";
 
+import vend1 from "../assets/vend1.svg";
+import vend2 from "../assets/vend2.svg";
+import vend3 from "../assets/vend3.svg";
+import vend4 from "../assets/vend4.svg";
+
 import fim1 from "../assets/fim1.svg";
 import fim2 from "../assets/fim2.svg";
 import fim3 from "../assets/fim3.svg";
@@ -230,7 +235,43 @@ const Home = () => {
         </Slider>
       </section>
 
-      {/* Vendedores em destaque */}
+      {/* Vendedores destaque*/}
+      <section className="vendedores-svg">
+        <h2 className="vendedoresm-titulo">Vendedores destaque</h2>
+
+        <div className="vendedores-svg-grid">
+          <div className="vend-svg-item">
+            <a href="#" className="vend-svg-card">
+              <img src={vend1} alt="Cordial Watches" />
+            </a>
+            <p className="vend-nome">Cordial Watches</p>
+          </div>
+
+          <div className="vend-svg-item">
+            <a href="#" className="vend-svg-card">
+              <img src={vend2} alt="TMG Time Gateways" />
+            </a>
+            <p className="vend-nome">TMG Time Gateways</p>
+          </div>
+
+          <div className="vend-svg-item">
+            <a href="#" className="vend-svg-card">
+              <img src={vend3} alt="Fist Wear." />
+            </a>
+            <p className="vend-nome">Fist Wear.</p>
+          </div>
+
+          <div className="vend-svg-item">
+            <a href="#" className="vend-svg-card">
+              <img src={vend4} alt="Linksor Joias" />
+            </a>
+            <p className="vend-nome">Linksor Joias</p>
+          </div>
+        </div>
+        <a href="#" className="vend-btn-mobile">
+          Ver todos vendedores
+        </a>
+      </section>
 
       {/* Vire vendedor (banner) */}
       <section className="vire-vendedor">
@@ -244,6 +285,10 @@ const Home = () => {
             <img src={desk} alt="Vire vendedor na Nobile" loading="lazy" />
           </picture>
         </a>
+        <p>
+          Oferecemos uma plataforma segura, elegante e com visibilidade
+          internacional para que você possa vender suas peças com confiança.
+        </p>
       </section>
 
       {/* Como funciona */}

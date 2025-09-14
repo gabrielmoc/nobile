@@ -614,7 +614,9 @@ margin: 0;
   box-shadow: 0 12px 28px rgba(0,0,0,.14);
 }
 
-/* Mobile: menos sombra e raio um pouco menor, se quiser */
+.vire-vendedor p {
+  display: none;
+}
 @media (max-width: 991px) {
   .vire-vendedor {
     margin: 40px 0;
@@ -622,5 +624,126 @@ margin: 0;
   .vire-vendedor__link {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  .vire-vendedor p {
+  display: block;
+  font-family: Lato;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 140%;
+letter-spacing: 0%;
+vertical-align: middle;
+color: #777777;
+}
+}
+
+/* ===== Vendedores destaque (SVGs) ===== */
+.vendedores-svg {
+  padding: 56px 10px 24px;
+}
+
+.vendedoresm-titulo {
+  font-family: "Erstoria", serif;
+  font-weight: 400;
+  font-size: 58px;
+  line-height: 100%;
+  color: #000;
+  margin: 0 0 24px 0;
+}
+
+.vendedores-svg-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.vend-svg-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vend-svg-card {
+  display: block;
+  width: 100%;
+  max-width: 388px;   /* largura do card no Figma */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.vend-svg-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.vend-svg-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+
+.vend-nome {
+  margin: 0;
+  font-family: "Erstoria", serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: -1%;
+  color: #000;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .vendedores-svg-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .vendedores-svg-grid { grid-template-columns: 1fr; }
+  .vendedoresm-titulo { font-size: 36px; }
+  .vend-svg-card { max-width: 100%; }
+}
+
+@media (max-width: 767px){
+  .vendedoresm-titulo{
+    font-size: 35px;
+  }
+}
+
+/* Botão mobile: Ver todos vendedores (esconde no desktop) */
+.vend-btn-mobile {
+  display: none;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 56px;            /* centraliza verticalmente */
+  color: #141414;
+  border: 1.6px solid #141414;  /* stroke do Figma */
+  border-radius: 9999px;        /* pílula */
+  height: 56px;
+  width: 100%;
+  max-width: 388px;
+  text-align: center;
+  margin: 16px auto 0;          /* centralizado abaixo dos cards */
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.vend-btn-mobile:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(20,20,20,.15);
+}
+
+.vend-btn-mobile:hover {
+  background: #141414;
+  color: #fff;
+}
+
+/* Só mostra no mobile */
+@media (max-width: 767px) {
+  .vend-btn-mobile {
+    display: block;
   }
 }
