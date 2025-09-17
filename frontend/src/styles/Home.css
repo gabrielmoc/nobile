@@ -746,4 +746,7 @@ color: #777777;
   .vend-btn-mobile {
     display: block;
   }
+  .secao-destaques {
+    margin-top: -30%;
+  }
 }
