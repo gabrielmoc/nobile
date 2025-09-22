@@ -24,3 +24,12 @@ Marketplace de relógios de luxo entre usuários. A plataforma permite que pesso
 - **Upload de imagens:** Multer + Cloudinary
 - **Pagamentos:** Stripe API
 - **Outros:** dotenv, cors, nodemon, uuid
+
+## ✅ Organização dos Endpoints
+
+- **Auth:** /auth/register, /auth/login
+- **Watches:** /watches, /watches/:id ...
+- **Orders:** /orders, /order/:id ...
+- **Messages:** /messages
+- **Collections:** /collections
+- **Admin/Relatórios:** /admin/*
