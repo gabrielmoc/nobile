@@ -1,0 +1,771 @@
+{
+	"info": {
+		"_postman_id": "615f8143-5d5b-4802-85b2-8a903f401df1",
+		"name": "Nobile",
+		"description": "Testes das funcionalidades da aplicação.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31040534"
+	},
+	"item": [
+		{
+			"name": "Criar relógio - POST /watches (Upload de Imagem)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU3NDMwMDE4LCJleHAiOjE3NTgwMzQ4MTh9.Mcw6PWYeiGIMwj1iHmMjwPd90ssbtT4uKIJ7iIqO-BM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "brand",
+							"value": "Tommy Hilfiger",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "Edição Metallica",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "condition",
+							"value": "Usado",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "postman-cloud:///1f05ab2e-3342-47d0-b05d-640221ce2b0b"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/watches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"watches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar relógios – GET /watches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/watches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"watches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar relógio – PUT /watches/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU3NDMwMDE4LCJleHAiOjE3NTgwMzQ4MTh9.Mcw6PWYeiGIMwj1iHmMjwPd90ssbtT4uKIJ7iIqO-BM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"descrição do relógio\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/watches/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"watches",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar relógio por ID – GET /watches/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/watches/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"watches",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir relógio – DELETE /watches/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzZWxsZXJAbm9iaWxlLmNvbSIsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTIzMzUyMTcsImV4cCI6MTc1Mjk0MDAxN30.pzhcY3C_GjA9-7Ef7luiGVjAVzVdjQsjA-oISUPswIA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/watches/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"watches",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro de Usuário – POST /auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Vendedor 1\",\n  \"email\": \"seller@nobile.com\",\n  \"password\": \"12345678\",\n  \"phone\": \"99999999999\",\n  \"country\": \"Brasil\",\n  \"state\": \"RJ\",\n  \"city\": \"Rio de Janeiro\",\n  \"role\": \"SELLER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login de Usuário – POST /auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"admin@nobile.com\",\n  \"password\": \"admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Middleware] Bloqueio sem token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"brand\": \"Omega\",\n  \"model\": \"Speedmaster\",\n  \"price\": 45000,\n  \"condition\": \"Novo\",\n  \"description\": \"Modelo icônico usado na missão Apollo.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/watches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"watches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar pedido - POST /orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzMDYxMzg2LCJleHAiOjE3NTM2NjYxODZ9.M55Kas6Kidm6wqe8ukMeYVs5LP6vChyN6zm6HsbfDFg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"watchId\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar pedidos - GET /orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzMDYxMzg2LCJleHAiOjE3NTM2NjYxODZ9.M55Kas6Kidm6wqe8ukMeYVs5LP6vChyN6zm6HsbfDFg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar pedido - PUT /orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzZWxsZXJAbm9iaWxlLmNvbSIsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTE5NDE5NTQsImV4cCI6MTc1MjU0Njc1NH0.d4cEzgsuoODZxwolOw71fiR-my3SlII_Qr8lwQTQayY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"enviado\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Stripe] - Teste checkout de pagamento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzMDYxMzg2LCJleHAiOjE3NTM2NjYxODZ9.M55Kas6Kidm6wqe8ukMeYVs5LP6vChyN6zm6HsbfDFg",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/orders/checkout/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"checkout",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enviar mensagem - POST /messages",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzZWxsZXJAbm9iaWxlLmNvbSIsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTE5OTEwMjQsImV4cCI6MTc1MjU5NTgyNH0.O9rS9g1P6n_DShjb1hKzt-mVEwbkbbNHry0m1cGdoc0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"toUserId\": 2,\n  \"watchId\": 3,\n  \"content\": \"Esse relógio está disponível?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar mensagens - GET /messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzZWxsZXJAbm9iaWxlLmNvbSIsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTE5OTEwMjQsImV4cCI6MTc1MjU5NTgyNH0.O9rS9g1P6n_DShjb1hKzt-mVEwbkbbNHry0m1cGdoc0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar a coleção - POST /collection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU3NDQwNjU5LCJleHAiOjE3NTgwNDU0NTl9.8nR_KIOLA60X_5D9g0Uqyuib3l8mln2awun26GL5xLw",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"watchId\": 5,\n  \"estimatedValue\": 85000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/collections",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"collections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar coleção - GET /collection",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU3NDQwNjU5LCJleHAiOjE3NTgwNDU0NTl9.8nR_KIOLA60X_5D9g0Uqyuib3l8mln2awun26GL5xLw",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/collections",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"collections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar coleção - PUT /collection",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzZWxsZXJAbm9iaWxlLmNvbSIsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTE5OTEwMjQsImV4cCI6MTc1MjU5NTgyNH0.O9rS9g1P6n_DShjb1hKzt-mVEwbkbbNHry0m1cGdoc0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"estimatedValue\": 92000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/collections/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"collections",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remover da coleção - DELETE /collection",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzZWxsZXJAbm9iaWxlLmNvbSIsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTE5ODc1NDUsImV4cCI6MTc1MjU5MjM0NX0.xKnP_OXU_uXkMQP1cwrMzH6bW75fCUwQLgjOc8r9tYA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/collections/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"collections",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Visão geral do sistema - GET /reports ",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyMzM3OTkzLCJleHAiOjE3NTI5NDI3OTN9.MlzwjPGEG-XT21ngQ3DmUflDrwKPVfc9fEs12BYdpkA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"admin@nobile.com\",\n  \"password\": \"admin123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/admin/reports",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"reports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ações administrativas - GET /logs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUyMzM3OTkzLCJleHAiOjE3NTI5NDI3OTN9.MlzwjPGEG-XT21ngQ3DmUflDrwKPVfc9fEs12BYdpkA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/admin/logs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"logs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Pagamento - GET /verificar-pagamento",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzMDYxMzg2LCJleHAiOjE3NTM2NjYxODZ9.M55Kas6Kidm6wqe8ukMeYVs5LP6vChyN6zm6HsbfDFg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/orders/verificar-pagamento?sessionId=cs_test_a10egN6U4EatG76gO1DhQivJkAHo1ONrJKbD7sT0blcxcgTomsqzbDF1sd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"verificar-pagamento"
+					],
+					"query": [
+						{
+							"key": "sessionId",
+							"value": "cs_test_a10egN6U4EatG76gO1DhQivJkAHo1ONrJKbD7sT0blcxcgTomsqzbDF1sd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirmar Entrega - PUT /confirm-delivery",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzMDYxMzg2LCJleHAiOjE3NTM2NjYxODZ9.M55Kas6Kidm6wqe8ukMeYVs5LP6vChyN6zm6HsbfDFg",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/orders/5/confirm-delivery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"5",
+						"confirm-delivery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payout - POST /payout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBub2JpbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzMDYxMzg2LCJleHAiOjE3NTM2NjYxODZ9.M55Kas6Kidm6wqe8ukMeYVs5LP6vChyN6zm6HsbfDFg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/orders/payout/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"payout",
+						"5"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
